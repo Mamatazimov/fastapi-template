@@ -19,17 +19,17 @@
 1. Operatsion tizimingizga docker yoki dokcer-desktop daturini o'rnating.
 2. Ungi ishga tushurgandan so'ng postgres imagini yuklang.
 ```bash
-$ docker pull postgres
+docker pull postgres
 ```
 3. Shu postgres imagedan container yarating:
 ```bash
-$ docker run --name <CONTAINER_NAME> -p 5432:5432 -e POSTGRES_PASSWORD=<PASSWORD> -d postgres
+docker run --name <CONTAINER_NAME> -p 5432:5432 -e POSTGRES_PASSWORD=<PASSWORD> -d postgres
 ```
 4. Ishga tushgan postgres ichida database yarating(haqiqiy va test uchun):
 ```bash
-$ docker exec -ti ems-database createdb -U postgres <DB_NAME>
+docker exec -ti ems-database createdb -U postgres <DB_NAME>
 
-$ docker exec -ti ems-database createdb -U postgres <TEST_DB_NAME>
+docker exec -ti ems-database createdb -U postgres <TEST_DB_NAME>
 ```
 
 Agar siz hammasini to'g'ri qilgan bo'lsangiz sizda quyidagi ma'lumotlar bor:
@@ -51,7 +51,7 @@ Agar iloji bo'lsa postgres uchun userni ham yangi yaratish tafsiya qilinadi.
 
 1. Kerakli papkaga boring va kodni githubdan yuklab oling:
 ```bash
-$ git clone https://github.com/Abdurasuloff/fastapi-template.git
+git clone https://github.com/Abdurasuloff/fastapi-template.git
 ```
 
 2. Kerakli kutubxonalarni o'rnating:
@@ -59,34 +59,34 @@ Buning uchun birinchi vertual muhit yarating:
 
 ```bash
 # Windows uchun
-$ python -m venv myenv
-$ myenv\Scripts\activate
+python -m venv myenv
+myenv\Scripts\activate
 
 #Mac OS / Linux uchun
-$ python3 -m venv myenv
-$ source myenv/bin/activate
+python3 -m venv myenv
+source myenv/bin/activate
 
 #Kutubxonalarni o'rnating
-$ pip install -r requirements.txt 
+pip install -r requirements.txt 
 ```
 3. .env faylini .env.example fayliga qarab kerakli ma'lumotlar bilan to'ldiring
 4. Serverni ishga tushuring:
 
 ```bash
-$ cd app
-$ fastapi dev
+cd app
+fastapi dev
 ```
 
 ## Testlarni ishga tushurish.
 1. .env testlar uchun boshqa databaseni ko'rsatgan bo'lishingiz kerak.
 2. Test databaseni sozlash uchun:
 ```bash
-$ cd app
-$ python test_setup.py
+cd app
+python test_setup.py
 ```
 3. Testlarni ishga tushuring
 ```bash
-$ pytest
+pytest
 ```
 
 ## Eslatma

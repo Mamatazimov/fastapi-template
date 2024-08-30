@@ -23,23 +23,23 @@ docker pull postgres
 ```
 3. Shu postgres imagedan container yarating:
 ```bash
-docker run --name <CONTAINER_NAME> -p 5432:5432 -e POSTGRES_PASSWORD=<PASSWORD> -d postgres
+docker run --name <CONTAINER_NAME> -p 5432:5432 -e POSTGRES_PASSWORD=<PASSWORD> -e POSTGRES_USER=<USER> -d postgres
 ```
 4. Ishga tushgan postgres ichida database yarating(haqiqiy va test uchun):
 ```bash
-docker exec -ti ems-database createdb -U postgres <DB_NAME>
+docker exec -ti <CONTAINER_NAME> createdb -U <USER> <DB_NAME>
 
-docker exec -ti ems-database createdb -U postgres <TEST_DB_NAME>
+docker exec -ti <CONTAINER_NAME> createdb -U <USER> <TEST_DB_NAME>
 ```
 
 Agar siz hammasini to'g'ri qilgan bo'lsangiz sizda quyidagi ma'lumotlar bor:
-- DB_USER=postgres
+- DB_USER=<USER>
 - DP_PASSWORD=<PASSWORD>
 - DB_PORT=5432
 - DB_NAME=<DB_NAME>
 - DB_ADDRESS=localhost
 -
-- TEST_DB_USER=postgres
+- TEST_DB_USER=<USER>
 - TEST_DB_PASSWORD=<PASSWORD>
 - TEST_DB_PORT=5432
 - TEST_DB_NAME=<TEST_DB_NAME>
